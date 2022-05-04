@@ -6,7 +6,7 @@ import requests
 scope = 'playlist-modify-public'
 
 username = ''
-#A variável username receberá o nome do usuário.
+#A variável username receberá o ID do usuário.
 CLIENT_ID = ''
 #A variável Client_ID receberá o Client_ID do usuário*.
 CLIENT_SECRET = ''
