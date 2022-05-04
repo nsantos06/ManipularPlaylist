@@ -4,10 +4,10 @@ from spotipy import SpotifyOAuth
 import requests
 
 scope = 'playlist-modify-public'
-username = 'nsantos07'
-CLIENT_ID = '6943c8b023dc4b58b9ef14b91be66934'
-CLIENT_SECRET = '57dca581357246d795260eaa0413dda3'
-REDIRECT_URI = 'http://127.0.0.1:8080/'
+username = ''
+CLIENT_ID = ''
+CLIENT_SECRET = ''
+REDIRECT_URI = ''
 
 
 token = SpotifyOAuth(client_id=CLIENT_ID,
