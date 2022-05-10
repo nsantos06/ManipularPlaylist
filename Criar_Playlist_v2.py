@@ -4,10 +4,15 @@ from spotipy import SpotifyOAuth
 import json
 
 scope = 'playlist-modify-public'
-CLIENT_ID = ''
-CLIENT_SECRET = ''
-REDIRECT_URI = ''
 
+CLIENT_ID = ''
+#A variável Client_ID receberá o Client_ID do usuário*.
+CLIENT_SECRET = ''
+#A variável Client_Secret receberá o Client_Secret do usuário*.
+REDIRECT_URI = ''
+#A variável Redirect_URI receberá o Redirect_URI do usuário*.
+
+#*As três variáveis, estão disponíveis quando você inicia sua conta como desenvolvedor no Spotify.
 
 #auth_manager = SpotifyClientCredentials(client_id=CLIENT_ID,
                                         #client_secret=CLIENT_SECRET)
