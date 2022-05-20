@@ -38,12 +38,12 @@ while track != '0':
     searchQuery = artist + ' ' + track
     searchResults = sp.search(q=searchQuery)
 
-    # Achando nome e ID do artista
+    # Fazendo a busca do Nome e ID do artista
     searchArtists = searchResults['tracks']['items'][0]['artists']
     searchNameArtist = searchArtists[0]['name']
     searchURIArtist = searchArtists[0]['uri']
 
-    # Achando nome e ID da musica.
+    # Encontrando o nome e ID da musica.
     searchNameSong = searchResults["tracks"]["items"][0]["name"]
     searchURISong = searchResults["tracks"]["items"][0]["uri"]
 
@@ -64,5 +64,5 @@ playlist_user = sp.user_playlists(user=user_id)
 #Pegando o ID da última playlist. Ou seja, a playlist que foi criada. 
 playlist_add = playlist_user['items'][0]['id']
 
-#Adicionando os itens dentro da lista, para a playlist:
+#Adicionando os itens dentro da lista:
 sp.playlist_add_items(playlist_id=playlist_add, items=list_of_tracks)
