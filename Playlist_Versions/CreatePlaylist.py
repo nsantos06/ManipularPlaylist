@@ -77,7 +77,7 @@ while contador_de_musicas != '0':
     print(f'\nMúsica {searchNameSong} do(a) {searchNameArtist} Adicionada!')
     print(f'Quantidade de músicas adicionadas:{contador_de_musicas}')
 
-    if contador_de_musicas == 2:
+    if contador_de_musicas == 99:
         break
 
     artist = input("\nArtist:")
