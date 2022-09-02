@@ -59,18 +59,23 @@ while track != '0':
     # Imprimindo a música adicionada e o cantor.
     print(f'\nMúsica {searchNameSong} do(a) {searchNameArtist} Adicionada!')
     print(f'Quantidade de músicas adicionadas:{contador_de_musicas}')
-
+    
+    if contador_de_musicas == 99:
+        break
+        
     artist = input("\nArtist:")
     track = input("Track:")
 
 
 
 
-# Pegando as Informações da playlist do usuário.
-playlist_user = sp.user_playlists(user=user_id)
+def playlist():
+    # Pegando as Informações da playlist do usuário.
+    playlist_user = sp.user_playlists(user=user_id)
+    # Pegando o ID da última playlist. Ou seja, a playlist que foi criada.
+    playlist_add = playlist_user['items'][0]['id']
+    # Adicionando os itens dentro da lista:
+    sp.playlist_add_items(playlist_id=playlist_add, items=list_of_tracks)
 
-# Pegando o ID da última playlist. Ou seja, a playlist que foi criada.
-playlist_add = playlist_user['items'][0]['id']
+playlist()
 
-# Adicionando os itens dentro da lista:
-sp.playlist_add_items(playlist_id=playlist_add, items=list_of_tracks)
