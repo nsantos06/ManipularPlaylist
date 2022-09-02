@@ -6,9 +6,9 @@ import json
 
 #Informações necessárias para criar a playlist.
 scope = 'playlist-modify-public'
-CLIENT_ID = '03456c85466c4464a6205e5779e62e98'
-CLIENT_SECRET = '872fcaeaee8648bfa92372e56aad9312'
-REDIRECT_URI = 'https://127.0.0.0:8080/'
+CLIENT_ID = ''
+CLIENT_SECRET = ''
+REDIRECT_URI = ''
 
 # Criando Objeto Spotify(nome sp).
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
