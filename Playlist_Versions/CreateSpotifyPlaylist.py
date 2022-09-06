@@ -7,6 +7,7 @@ CLIENT_ID = ''
 CLIENT_SECRET = ''
 REDIRECT_URI = ''
 
+
 # Criando Objeto Spotify(nome sp).
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
                                                client_secret=CLIENT_SECRET,
@@ -15,12 +16,13 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
 # Pegando o ID do usuário
 user_id = sp.me()['id']
 
-# Criando Token de Acesso à conta.
+
+#Criando Token de Acesso à conta.
 token = SpotifyOAuth(client_id=CLIENT_ID,
-                     client_secret=CLIENT_SECRET,
-                     redirect_uri=REDIRECT_URI,
-                     scope=scope,
-                     username=user_id)
+                         client_secret=CLIENT_SECRET,
+                         redirect_uri=REDIRECT_URI,
+                         scope=scope,
+                         username=user_id)
 
 def criar_Playlist():
     # Nome e descrição da playlist. Após, ela é criada.
@@ -38,22 +40,32 @@ def adicionando_playlist():
 
 def mostrar_playlist():
     playlists = sp.user_playlists(user_id)
-    print("\nPlaylists:")
+    account_name = sp.me()['display_name']
+    print(f'Nome das playlists na conta do(a) {account_name}:\n')
     for playlist in playlists['items']:
         print(playlist['name'])
 
 criar_Playlist()
 
+quantity_tracks = int(input("Quantas músicas deseja adicionar?: "))
+while quantity_tracks >= 100:
+    print("Digite um numero menor que 100")
+    quantity_tracks = int(input("Quantas musicas deseja adicionar?:"))
+
+
 # Nome do Artista e da música
-artist = input("\nArtist:")
-track = input("Track:")
+artist = input("\nArtista:")
+track = input("Faixa musical:")
+
 # Lista onde as músicas seram guardadas.
 list_of_tracks = []
-contador_de_musicas = 0
 
-while contador_de_musicas != '0':
+#Contador de faixas
+count_tracks = 0
+
+while track != '0':
     #Só podemos adicionar um limite de 100 músicas na playlist
-    contador_de_musicas = contador_de_musicas + 1
+    count_tracks = count_tracks + 1
 
     # Fazendo a Busca do artista e da música.
     searchQuery = artist + ' ' + track
@@ -73,15 +85,17 @@ while contador_de_musicas != '0':
 
     # Adicionando a Música na lista.
     list_of_tracks.append(searchURISong)
-    # Imprimindo a música adicionada e o cantor.
-    print(f'\nMúsica {searchNameSong} do(a) {searchNameArtist} Adicionada!')
-    print(f'Quantidade de músicas adicionadas:{contador_de_musicas}')
 
-    if contador_de_musicas == 99:
+    # Imprimindo a música adicionada e o cantor.
+    print(f'\nUma música similar à: {searchNameSong} do(a) {searchNameArtist} foi adicionada!')
+    print(f'Quantidade de músicas adicionadas:{count_tracks}')
+
+    #O programa parará quando a contagem de faixas for igual a quantidade, ou chegar no limite(100).
+    if count_tracks == quantity_tracks or count_tracks == 100:
         break
 
-    artist = input("\nArtist:")
-    track = input("Track:")
+    artist = input("\nArtista:")
+    track = input("Faixa musical:")
 
 adicionando_playlist()
 mostrar_playlist()
