@@ -48,6 +48,11 @@ def mostrar_playlist():
 criar_Playlist()
 
 quantity_tracks = int(input("Quantas músicas deseja adicionar?: "))
+#Quando o usuário pedir pra adicionar um número de músicas inválidas.
+while quantity_tracks < 1:
+    print("Digite um número de 1 até 100")
+    quantity_tracks = int(input("Quantas músicas deseja adicionar?: "))
+#Dado o limite de até 100 faixas por execução de código, o usuário poderá colocar até 99.
 while quantity_tracks >= 100:
     print("Digite um numero menor que 100")
     quantity_tracks = int(input("Quantas musicas deseja adicionar?:"))
@@ -91,6 +96,7 @@ while track != '0':
     print(f'Quantidade de músicas adicionadas:{count_tracks}')
 
     #O programa parará quando a contagem de faixas for igual a quantidade, ou chegar no limite(100).
+
     if count_tracks == quantity_tracks or count_tracks == 100:
         break
 
